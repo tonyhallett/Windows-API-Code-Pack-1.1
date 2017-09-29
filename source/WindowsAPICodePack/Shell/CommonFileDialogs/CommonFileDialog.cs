@@ -887,13 +887,15 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             {
                 CommonFileDialogTextBox textBox = control as CommonFileDialogTextBox;
 
+                CommonFileDialogLabel label = control as CommonFileDialogLabel;
+
                 if (textBox != null)
                 {
                     customize.SetEditBoxText(control.Id, textBox.Text);
                 }
-                else
+                else if (label != null)
                 {
-                    customize.SetControlLabel(control.Id, textBox.Text);
+                    customize.SetControlLabel(control.Id, label.Text);
                 }
             }
             else if (propertyName == "Visible" && (dialogControl = control as CommonFileDialogControl) != null)

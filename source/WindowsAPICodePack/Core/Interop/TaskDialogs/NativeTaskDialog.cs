@@ -89,18 +89,18 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
                 int selectedRadioButtonId;
                 bool checkBoxChecked;
 
-				// Here is the way we use "vanilla" P/Invoke to call TaskDialogIndirect().
-				HResult hresult;
-				using (new EnableThemingInScope(true))
-				{
-					hresult = TaskDialogNativeMethods.TaskDialogIndirect(
-						nativeDialogConfig,
-						out selectedButtonId,
-						out selectedRadioButtonId,
-						out checkBoxChecked);
-				}
+                // Here is the way we use "vanilla" P/Invoke to call TaskDialogIndirect().
+                HResult hresult;
+                using (new EnableThemingInScope(true))
+                {
+                    hresult = TaskDialogNativeMethods.TaskDialogIndirect(
+                        nativeDialogConfig,
+                        out selectedButtonId,
+                        out selectedRadioButtonId,
+                        out checkBoxChecked);
+                }
 
-				if (CoreErrorHelper.Failed(hresult))
+                if (CoreErrorHelper.Failed(hresult))
                 {
                     string msg;
                     switch (hresult)
@@ -346,9 +346,12 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             SendMessageHelper(TaskDialogNativeMethods.TaskDialogMessages.SetProgressBarPosition, i, 0);
         }
 
-        internal void UpdateProgressBarRange()
+        internal void UpdateProgressBarRange(int? min = null, int? max = null)
         {
             AssertCurrentlyShowing();
+
+            if (min.HasValue) settings.ProgressBarMinimum = min.Value;
+            if (max.HasValue) settings.ProgressBarMaximum = max.Value;
 
             // Build range LPARAM - note it is in REVERSE intuitive order.
             long range = NativeTaskDialog.MakeLongLParam(
@@ -529,19 +532,33 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             }
         }
 
+        //private static IntPtr AllocateAndMarshalButtons(TaskDialogNativeMethods.TaskDialogButton[] buttons)
+        //{
+        //    var buttonType = typeof(TaskDialogNativeMethods.TaskDialogButton);
+        //    var buttonTypeSize = Marshal.SizeOf(buttonType);
+
+        //    IntPtr result = Marshal.AllocHGlobal(buttonTypeSize * buttons.Length);
+
+        //    for (int index = 0; index < buttons.Length; index++)
+        //    {
+        //        var button = buttons[index];
+        //        var tmp = (IntPtr)(result.ToInt64() + buttonTypeSize * index);
+        //        Marshal.StructureToPtr(button, tmp, false);
+        //    }
+        //    return result;
+        //}
+
         private static IntPtr AllocateAndMarshalButtons(TaskDialogNativeMethods.TaskDialogButton[] structs)
         {
-            IntPtr initialPtr = Marshal.AllocHGlobal(
-                Marshal.SizeOf(typeof(TaskDialogNativeMethods.TaskDialogButton)) * structs.Length);
-
+            int sizeOfButton = Marshal.SizeOf(typeof(TaskDialogNativeMethods.TaskDialogButton));
+            IntPtr initialPtr = Marshal.AllocHGlobal(sizeOfButton * structs.Length);
             IntPtr currentPtr = initialPtr;
-            bool is64Bit = Marshal.SizeOf(typeof (IntPtr)) == 8;
+
             foreach (TaskDialogNativeMethods.TaskDialogButton button in structs)
             {
                 Marshal.StructureToPtr(button, currentPtr, false);
-                currentPtr = (IntPtr)(is64Bit ? currentPtr.ToInt64() : currentPtr.ToInt32() + Marshal.SizeOf(button));
+                currentPtr = new IntPtr(currentPtr.ToInt64() + sizeOfButton);
             }
-
             return initialPtr;
         }
 
@@ -557,7 +574,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-        
+
         ~NativeTaskDialog()
         {
             Dispose(false);
@@ -597,13 +614,25 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
                 }
 
                 // Clean up the button and radio button arrays, if any.
+                int sizeOfButton = Marshal.SizeOf(typeof(TaskDialogNativeMethods.TaskDialogButton));
                 if (buttonArray != IntPtr.Zero)
                 {
+                    for (int i = 0; i < settings.Buttons.Length; ++i)
+                    {
+                        IntPtr curItem = new IntPtr(buttonArray.ToInt64() + i * sizeOfButton);
+                        Marshal.DestroyStructure(curItem, typeof(TaskDialogNativeMethods.TaskDialogButton));
+                    }
                     Marshal.FreeHGlobal(buttonArray);
                     buttonArray = IntPtr.Zero;
                 }
                 if (radioButtonArray != IntPtr.Zero)
                 {
+                    for (int i = 0; i < settings.RadioButtons.Length; ++i)
+                    {
+                        IntPtr curItem = new IntPtr(radioButtonArray.ToInt64() + i * sizeOfButton);
+                        Marshal.DestroyStructure(curItem, typeof(TaskDialogNativeMethods.TaskDialogButton));
+                    }
+
                     Marshal.FreeHGlobal(radioButtonArray);
                     radioButtonArray = IntPtr.Zero;
                 }

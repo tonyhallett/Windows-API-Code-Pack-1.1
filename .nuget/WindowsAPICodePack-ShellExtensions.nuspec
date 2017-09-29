@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>WindowsAPICodePack-ShellExtensions</id>
-        <version>1.1.1</version>
+        <id>ThomasPrioul.WindowsAPICodePack-ShellExtensions</id>
+        <version>1.1.2</version>
         <title>Windows API Code Pack - Shell Extensions</title>
-        <authors>Aybe</authors>
+        <authors>ThomasPrioul</authors>
         <owners>Microsoft</owners>
         <licenseUrl>http://code.msdn.microsoft.com/WindowsAPICodePack/Project/License.aspx</licenseUrl>
-        <projectUrl>https://github.com/aybe/Windows-API-Code-Pack-1.1</projectUrl>
+        <projectUrl>https://github.com/ThomasPrioul/Windows-API-Code-Pack-1.1</projectUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <description>Shell extensions library for Windows API Code Pack</description>
         <summary>Windows® API Code Pack for Microsoft® .NET Framework provides a source code library that can be used to access some features of Windows 7 and Windows Vista from managed code.</summary>
@@ -15,7 +15,7 @@
         <language>en-US</language>
         <tags>Windows API Code Pack</tags>
         <dependencies>
-            <dependency id="WindowsAPICodePack-Shell" version="1.1.1" />
+            <dependency id="WindowsAPICodePack-Shell" version="1.1.2" />
         </dependencies>
     </metadata>
     <files>

@@ -8,7 +8,7 @@
         <owners>Microsoft</owners>
         <licenseUrl>http://code.msdn.microsoft.com/WindowsAPICodePack/Project/License.aspx</licenseUrl>
         <projectUrl>https://github.com/ThomasPrioul/Windows-API-Code-Pack-1.1</projectUrl>
-        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Core library for Windows API Code Pack</description>
         <summary>Windows® API Code Pack for Microsoft® .NET Framework provides a source code library that can be used to access some features of Windows 7 and Windows Vista from managed code.</summary>
         <releaseNotes>See CHANGELOG in project site.</releaseNotes>

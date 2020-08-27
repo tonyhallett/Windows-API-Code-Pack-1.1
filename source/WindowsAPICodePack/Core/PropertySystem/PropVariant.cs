@@ -636,7 +636,7 @@ namespace MS.WindowsAPICodePack.Internal
                     case VarEnum.VT_R8:
                         return _double;
                     case VarEnum.VT_BOOL:
-                        return _int32 == -1;
+                        return _short == -1;
                     case VarEnum.VT_ERROR:
                         return _long;
                     case VarEnum.VT_CY:

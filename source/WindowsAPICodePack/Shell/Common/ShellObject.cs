@@ -152,6 +152,15 @@ namespace Microsoft.WindowsAPICodePack.Shell
             }
         }
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        public ShellNativeMethods.ShellFileGetAttributesOptions GetAttributes(ShellNativeMethods.ShellFileGetAttributesOptions attributeOptions)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+        {
+            ShellNativeMethods.ShellFileGetAttributesOptions sfgao;
+            NativeShellItem.GetAttributes(attributeOptions, out sfgao);
+            return sfgao;
+        }
+
         #endregion
 
         #region Public Properties

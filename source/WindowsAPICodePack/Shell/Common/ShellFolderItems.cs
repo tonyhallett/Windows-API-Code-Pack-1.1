@@ -20,13 +20,13 @@ namespace Microsoft.WindowsAPICodePack.Shell
 
         #region Internal Constructor
 
-        internal ShellFolderItems(ShellContainer nativeShellFolder)
+        internal ShellFolderItems(ShellContainer nativeShellFolder, ShellNativeMethods.ShellFolderEnumerationOptions shellFolderEnumerationOptions = ShellNativeMethods.ShellFolderEnumerationOptions.Folders | ShellNativeMethods.ShellFolderEnumerationOptions.NonFolders)
         {
             this.nativeShellFolder = nativeShellFolder;
 
             HResult hr = nativeShellFolder.NativeShellFolder.EnumObjects(
                 IntPtr.Zero,
-                ShellNativeMethods.ShellFolderEnumerationOptions.Folders | ShellNativeMethods.ShellFolderEnumerationOptions.NonFolders,
+                shellFolderEnumerationOptions,
                 out nativeEnumIdList);
 
 

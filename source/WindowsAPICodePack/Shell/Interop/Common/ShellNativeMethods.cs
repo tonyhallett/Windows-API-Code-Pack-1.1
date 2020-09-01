@@ -6,7 +6,9 @@ using System.Text;
 
 namespace Microsoft.WindowsAPICodePack.Shell
 {
-    internal static class ShellNativeMethods
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+    public static class ShellNativeMethods
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
         #region Shell Enums
 
@@ -246,7 +248,9 @@ namespace Microsoft.WindowsAPICodePack.Shell
         }
 
         [Flags]
-        internal enum ShellFileGetAttributesOptions
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        public enum ShellFileGetAttributesOptions
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             /// <summary>
             /// The specified items can be copied.
@@ -445,7 +449,8 @@ namespace Microsoft.WindowsAPICodePack.Shell
         }
 
         [Flags]
-        internal enum ShellFolderEnumerationOptions : ushort
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        public enum ShellFolderEnumerationOptions
         {
             CheckingForChildren = 0x0010,
             Folders = 0x0020,
@@ -458,8 +463,10 @@ namespace Microsoft.WindowsAPICodePack.Shell
             NavigationEnum = 0x1000,
             FastItems = 0x2000,
             FlatList = 0x4000,
-            EnableAsync = 0x8000
+            EnableAsync = 0x8000,
+            IncludeSuperHidden = 0x10000
         }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 
         #endregion
 
@@ -555,7 +562,9 @@ namespace Microsoft.WindowsAPICodePack.Shell
         internal static extern uint ILGetSize(IntPtr pidl);
 
         [DllImport("shell32.dll", CharSet = CharSet.None)]
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public static extern void ILFree(IntPtr pidl);
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 
         [DllImport("gdi32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]

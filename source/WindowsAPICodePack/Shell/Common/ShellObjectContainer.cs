@@ -105,6 +105,22 @@ namespace Microsoft.WindowsAPICodePack.Shell
 
             return new ShellFolderItems(this);
         }
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        public IEnumerator<ShellObject> GetItems(ShellNativeMethods.ShellFolderEnumerationOptions shellFolderEnumerationOptions)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+        {
+            if (NativeShellFolder == null)
+            {
+                if (desktopFolderEnumeration == null)
+                {
+                    ShellNativeMethods.SHGetDesktopFolder(out desktopFolderEnumeration);
+                }
+
+                nativeShellFolder = desktopFolderEnumeration;
+            }
+
+            return new ShellFolderItems(this, shellFolderEnumerationOptions);
+        }
 
         #endregion
 

@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Shell.Resources;
 
 namespace Microsoft.WindowsAPICodePack.Shell
@@ -586,6 +587,38 @@ namespace Microsoft.WindowsAPICodePack.Shell
         /// ImplicitAppShortcuts
         /// </summary>
         internal static Guid ImplicitAppShortcuts = new Guid(0xbcb5256f, 0x79f6, 0x4cee, 0xb7, 0x25, 0xdc, 0x34, 0xe4, 0x2, 0xfd, 0x46);
+
+        internal static Guid PublicLibraries = new Guid("{48daf80b-e6cf-4f4e-b800-0e69d84ee384}");
+
+        #endregion
+
+        #region win8 KnownFolders Guids
+
+        internal static Guid AccountPictures = new Guid("{008ca0b1-55b4-4c56-b8a8-4de4b299d3be}");
+        internal static Guid ApplicationShortcuts = new Guid("{a3918781-e5f2-4890-b3d9-a7e54332328c}");
+        internal static Guid AppsFolder = new Guid("{1e87508d-89c2-42f0-8a7e-645a0f50ca58}");
+        internal static Guid CameraRoll = new Guid("{ab5fb87b-7ce2-4f83-915d-550846c9537b}");
+        internal static Guid HomeGroupCurrentUser = new Guid("{9b74b6a3-0dfd-4f11-9e78-5f7800f2e772}");
+        internal static Guid PublicUserTiles = new Guid("{0482af6c-08f1-4c34-8c90-e17ec98b1e17}");
+        internal static Guid RoamedTileImages = new Guid("{aaa8d5a5-f1d6-4259-baa8-78e7ef60835e}");
+        internal static Guid RoamingTiles = new Guid("{00bcfc5a-ed94-4e48-96a1-3f6217f21990}");
+        //Do not know when was introduced
+        internal static Guid SavedPictures = new Guid("{3b193882-d3ad-4eab-965a-69829d1fb59f}");
+        //Do not know when was introduced
+        internal static Guid SavedPicturesLibrary = new Guid("{e25b5812-be88-4bd9-94b0-29233477b6c3}");
+        internal static Guid Screenshots = new Guid("{b7bede81-df94-4682-a7d8-57a52620b86f}");
+        internal static Guid SearchHistory = new Guid("{0d4c3db6-03a3-462f-a0e6-08924c41b5d4}");
+        internal static Guid SearchTemplates = new Guid("{7e636bfe-dfa9-4d5e-b456-d7b39851d8a9}");
+        internal static Guid SkyDrive = new Guid("{a52bba46-e9e1-435f-b3d9-28daa648c0f6}");
+        internal static Guid SkyDriveCameraRoll = new Guid("{767e6811-49cb-4273-87c2-20f355e1085b}");
+        internal static Guid SkyDriveDocuments = new Guid("{24d89e24-2f19-4534-9dde-6a6671fbb8fe}");
+        internal static Guid SkyDrivePictures = new Guid("{339719b5-8c47-4894-94c2-d8f77add44a6}");
+
+        #endregion
+
+        #region win10 KnownFolders Guids
+
+        internal static Guid Objects3D = new Guid("{31c0dd25-9439-4f12-bf41-7ff4eda38722}");
 
         #endregion
     }

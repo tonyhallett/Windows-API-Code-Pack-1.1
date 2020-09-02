@@ -1325,6 +1325,233 @@ namespace Microsoft.WindowsAPICodePack.Shell
             }
         }
 
+        /// <summary>
+        /// Gets the metadata for the <b>AccountPictures</b> folder.
+        /// </summary>
+        public static IKnownFolder AccountPictures
+        {
+            get
+            {
+                //todo Win8
+                return GetKnownFolder(FolderIdentifiers.AccountPictures);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>ApplicationShortcuts</b> folder.
+        /// </summary>
+        public static IKnownFolder ApplicationShortcuts
+        {
+            get
+            {
+                //todo Win8
+                return GetKnownFolder(FolderIdentifiers.ApplicationShortcuts);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>AppsFolder</b> folder.
+        /// </summary>
+        public static IKnownFolder AppsFolder
+        {
+            get
+            {
+                //todo Win8
+                return GetKnownFolder(FolderIdentifiers.AppsFolder);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>CameraRoll</b> folder.
+        /// </summary>
+        public static IKnownFolder CameraRoll
+        {
+            get
+            {
+                //todo Win8.1
+                return GetKnownFolder(FolderIdentifiers.CameraRoll);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>HomeGroupCurrentUser</b> folder.
+        /// </summary>
+        public static IKnownFolder HomeGroupCurrentUser
+        {
+            get
+            {
+                //todo Win8
+                return GetKnownFolder(FolderIdentifiers.HomeGroupCurrentUser);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>Objects3D</b> folder.
+        /// </summary>
+        public static IKnownFolder Objects3D
+        {
+            get
+            {
+                //todo Win10
+                return GetKnownFolder(FolderIdentifiers.Objects3D);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>PublicLibraries</b> folder.
+        /// </summary>
+        public static IKnownFolder PublicLibraries
+        {
+            get
+            {
+                CoreHelpers.ThrowIfNotWin7();
+                return GetKnownFolder(FolderIdentifiers.PublicLibraries);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>PublicUserTiles</b> folder.
+        /// </summary>
+        public static IKnownFolder PublicUserTiles
+        {
+            get
+            {
+                //todo win8
+                return GetKnownFolder(FolderIdentifiers.PublicUserTiles);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>RoamedTileImages</b> folder.
+        /// </summary>
+        public static IKnownFolder RoamedTileImages
+        {
+            get
+            {
+                //todo win8
+                return GetKnownFolder(FolderIdentifiers.RoamedTileImages);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>RoamingTiles</b> folder.
+        /// </summary>
+        public static IKnownFolder RoamingTiles
+        {
+            get
+            {
+                //todo win8
+                return GetKnownFolder(FolderIdentifiers.RoamingTiles);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>SavedPictures</b> folder.
+        /// </summary>
+        public static IKnownFolder SavedPictures
+        {
+            get
+            {
+                //todo - determine version introduced
+                return GetKnownFolder(FolderIdentifiers.SavedPictures);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>SavedPicturesLibrary</b> folder.
+        /// </summary>
+        public static IKnownFolder SavedPicturesLibrary
+        {
+            get
+            {
+                //todo - determine version introduced
+                return GetKnownFolder(FolderIdentifiers.SavedPicturesLibrary);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>Screenshots</b> folder.
+        /// </summary>
+        public static IKnownFolder Screenshots
+        {
+            get
+            {
+                //todo win8
+                return GetKnownFolder(FolderIdentifiers.Screenshots);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>SearchHistory</b> folder.
+        /// </summary>
+        public static IKnownFolder SearchHistory
+        {
+            get
+            {
+                //todo win8.1
+                return GetKnownFolder(FolderIdentifiers.SearchHistory);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>SearchTemplates</b> folder.
+        /// </summary>
+        public static IKnownFolder SearchTemplates
+        {
+            get
+            {
+                //todo win8.1
+                return GetKnownFolder(FolderIdentifiers.SearchTemplates);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>SkyDrive</b> folder.
+        /// </summary>
+        public static IKnownFolder SkyDrive
+        {
+            get
+            {
+                //todo win8.1
+                return GetKnownFolder(FolderIdentifiers.SkyDrive);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>SkyDriveCameraRoll</b> folder.
+        /// </summary>
+        public static IKnownFolder SkyDriveCameraRoll
+        {
+            get
+            {
+                //todo win8.1
+                return GetKnownFolder(FolderIdentifiers.SkyDriveCameraRoll);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>SkyDriveDocuments</b> folder.
+        /// </summary>
+        public static IKnownFolder SkyDriveDocuments
+        {
+            get
+            {
+                //todo win8.1
+                return GetKnownFolder(FolderIdentifiers.SkyDriveDocuments);
+            }
+        }
+
+        /// <summary>
+        /// Gets the metadata for the <b>SkyDrivePictures</b> folder.
+        /// </summary>
+        public static IKnownFolder SkyDrivePictures
+        {
+            get
+            {
+                //todo win8.1
+                return GetKnownFolder(FolderIdentifiers.SkyDrivePictures);
+            }
+        }
         #endregion
 
     }
